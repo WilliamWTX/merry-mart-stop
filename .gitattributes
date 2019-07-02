@@ -1,0 +1,4 @@
+*.js linguist-language=JavaScript
+*.jsx linguist-language=React
+*.scss linguist-language=scss
+*.eslintignore linguist-language=eslint
