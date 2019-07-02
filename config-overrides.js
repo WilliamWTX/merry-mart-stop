@@ -5,6 +5,7 @@
 const { override, fixBabelImports } = require('customize-cra');
 const { Profile } = require('./profile');
 
+// env变量
 process.env.Profile = Profile;
 
 // 使用ESLint
@@ -19,23 +20,26 @@ useEslintRc = (configFile) => (config) => {
 
   delete eslintRule.use[0].options.baseConfig;
 
-  const rules = config.module.rules.map(r =>
+  config.module.rules = config.module.rules.map(r =>
     r.use && r.use.some(u => u.options && u.options.useEslintrc !== void 0)
       ? eslintRule
       : r
   );
-  config.module.rules = rules;
 
   return config;
 };
 
-// env变量
+// 使用SCSSLoader
+addSCSSLoader = () => config => {
+  return config;
+};
 
 module.exports = override(
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
-    style: 'css',
+    style: true,
   }),
   useEslintRc(),
+  addSCSSLoader(),
 );
