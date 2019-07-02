@@ -25,5 +25,4 @@ yarn-error.log*
 
 *.iml
 /.node_cache
-/.idea
 /.vscode
