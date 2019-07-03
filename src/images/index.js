@@ -10,3 +10,4 @@ export { default as ICON_CAT } from './icon_cat.png';
 export { default as ICON_USER } from './icon_user.png';
 export { default as ICON_USER_DEFAULT } from './icon_user_default.png';
 export { default as ICON_USER_HIGH } from './icon_user_high.png';
+export { default as ICON_LOGO } from './icon_logo.jpg';

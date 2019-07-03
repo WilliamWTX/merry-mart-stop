@@ -3,17 +3,44 @@
 
 // font color
 
-$fontColor = '#666';
-$baseFontColor = '#4A4A4A';
-$highFontColor = '#9A9A9A';
-$lightFontColor = '6C6C6C';
+$fontColor: #666;
+$baseFontColor: #4A4A4A;
+$highFontColor: #9A9A9A;
+$lightFontColor: #6C6C6C;
 
 // background color
 
-$baseBackgroundColor = '#E4393C';
-$backgroundColor = '#F63515';
+$baseBackgroundColor: #E4393C;
+$backgroundColor: #F63515;
+$highBackgroundColor: #e43130;
+
+$white: '#FFF';
 
 // font size
 
-$fontSize = '.14rem';
+$fontSize: .14rem;
+$smallFontSize: .12rem;
+$mdFontSize: .16rem;
+$largeFontSize: .18rem;
+$superLargeFontSize: .2rem;
+
+$white: #FFF;
+
+// mixin
+
+@mixin button($width, $height, $bg, $color, $radius, $font) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+  background: $bg;
+  font-size: $font;
+  color: $color;
+  border-radius: $radius;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-shadow: 0;
+}
+
 

@@ -4,9 +4,15 @@
  */
 // const Index = () => import('../page/index/Index');
 import Index from '../page/index/Index';
+import Login from '../page/login/Login';
 
 const router = () => (
   [
+    {
+      path: '/login',
+      component: Login,
+      children: [],
+    },
     {
       path: '/',
       component: Index,

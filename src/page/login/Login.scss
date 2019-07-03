@@ -1,2 +1,68 @@
 /* Created by william on 2019/7/2 16:06 */
 /* Develop by william on 2019/7/2 16:06 */
+@import  "../../common/scss/variables";
+
+.login {
+  font-size: 0;
+  height: 100%;
+  position: relative;
+  &__content {
+    position: absolute;
+    top: 15%;
+    left: .4rem;
+    width: calc(100% - .8rem);
+    text-align: center;
+  }
+  &__logo {
+    text-align: center;
+    font-size: .26rem;
+    color: #e43130;
+    margin-bottom: .2rem;
+  }
+  &__logo img{
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+  &__phone {
+    position: relative;
+    text-align: left;
+    height: .4rem;
+    & > button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include button(1rem, .4rem, transparent, $highBackgroundColor, .1rem, $fontSize)
+    }
+
+    & > input {
+      height: .4rem;
+      line-height: .4rem;
+      width: 100%;
+      border: 0;
+      outline: none;
+      padding-left: .1rem;
+      border-bottom: .01rem solid $baseBackgroundColor;
+    }
+  }
+
+  &__code {
+    text-align: left;
+    height: .4rem;
+    margin-top: .03rem;
+    & > input {
+      height: .4rem;
+      width: 100%;
+      line-height: .4rem;
+      border: 0;
+      padding-left: .1rem;
+      outline: none;
+      border-bottom: .01rem solid $fontColor;
+    }
+  }
+
+  &__btn {
+    @include button(100%, .4rem, $highBackgroundColor, $white, .5rem, $mdFontSize);
+    margin-top: .2rem;
+  }
+}
