@@ -1,0 +1,51 @@
+/* Created by william on 2019/7/5 17:03 */
+/* Develop by william on 2019/7/5 17:03 */
+@import "../../common/scss/variables";
+.root {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .5);
+  &__content {
+    position: absolute;
+    background: #FFF;
+    top: 30%;
+    left: .6rem;
+    border-radius: .03rem;
+    width: calc(100% - 1.2rem);
+    padding-top: .1rem;
+    &__title {
+      text-align: center;
+      margin-bottom: .1rem;
+      font-size: $mdFontSize;
+      color: $baseFontColor;
+    }
+    &__msg {
+      text-align: center;
+      font-size: $fontSize;
+      color: $highFontColor;
+      margin-bottom: .1rem;
+    }
+    &__footer {
+      border-top: .01rem solid #DDD;
+      button {
+        width: 50%;
+        background: transparent;
+        border: 0;
+        outline: none;
+        margin: 0;
+        height: .45rem;
+        line-height: .45rem;
+        font-size: $mdFontSize;
+      }
+      &__submit {
+        color: $highBackgroundColor;
+        font-weight: 500;
+        border-left: .01rem solid #DDD !important;
+      }
+    }
+  }
+}

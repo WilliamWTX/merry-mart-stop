@@ -55,6 +55,9 @@ npm start
 
 ```
 
+- 为了避免在项目过程中样式类的覆盖，启动css module, 通过 import Styles from path 的
+方式引入，相当于 Vue中的scope的作用一样，如果想用全局的scss 则文件使用.module.scss
+
 - 后续开发中，在项目组件引入中，会使用lazyLoad
 
 - 在此项目中， 最常见的感念：无状态组件， 完全受控组件，非受控组件

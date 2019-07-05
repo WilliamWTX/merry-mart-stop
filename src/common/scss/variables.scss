@@ -13,6 +13,7 @@ $lightFontColor: #6C6C6C;
 $baseBackgroundColor: #E4393C;
 $backgroundColor: #F63515;
 $highBackgroundColor: #e43130;
+$deepBgColor: #C21A1A;
 
 $white: '#FFF';
 
@@ -25,6 +26,9 @@ $largeFontSize: .18rem;
 $superLargeFontSize: .2rem;
 
 $white: #FFF;
+
+$CCC: #CCC;
+$keyboardBg: '#D0D5DB';
 
 // mixin
 
@@ -40,7 +44,7 @@ $white: #FFF;
   margin: 0;
   padding: 0;
   outline: none;
-  box-shadow: 0;
+  box-shadow: none;
 }
 
 

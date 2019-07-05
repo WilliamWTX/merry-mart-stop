@@ -13,6 +13,10 @@ html {
   height: 100%;
 }
 
+div {
+  font-size: .14rem;
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

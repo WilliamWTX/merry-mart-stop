@@ -1,0 +1,30 @@
+/* Created by william on 2019/7/5 17:49 */
+/* Develop by william on 2019/7/5 17:49 */
+@import "../../common/scss/variables";
+
+.root {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  &__content {
+    position: absolute;
+    background: $baseFontColor;
+    top: 30%;
+    left: .6rem;
+    border-radius: .06rem;
+    width: calc(100% - 1.2rem);
+    padding-top: .1rem;
+
+    &__msg {
+      text-align: center;
+      font-size: $fontSize;
+      color: $white;
+      margin-bottom: .1rem;
+    }
+  }
+}
+

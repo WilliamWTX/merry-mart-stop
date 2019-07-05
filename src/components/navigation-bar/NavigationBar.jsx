@@ -4,13 +4,13 @@
  */
 import React from 'react';
 import NavigationBarList from '../../util/NavigationBarUtil';
-import './NavigationBar.scss';
+import Styles from './NavigationBar.scss';
 
 class NavigationBar extends React.PureComponent {
   renderNabBarItem = ({ item, index }) => {
     const key = `key_${index}}`;
     return (
-      <div key={key} className="navigation__item">
+      <div key={key} className={Styles.navigation__item}>
         <img src={item.icon} alt="" />
       </div>
     );
@@ -23,7 +23,7 @@ class NavigationBar extends React.PureComponent {
 
   render() {
     return (
-      <div className="navigation">
+      <div className={Styles.navigation}>
         {this.renderNavBarList()}
       </div>
     );

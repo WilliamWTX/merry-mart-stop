@@ -1,0 +1,107 @@
+/* Created by william on 2019/7/2 14:24 */
+/* Develop by william on 2019/7/2 14:24 */
+@import "../../common/scss/variables";
+
+.root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  font-size: $fontSize;
+
+  &__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #D0D5DB;
+    padding: .06rem .04rem;
+    padding-bottom: 0.01rem;
+
+    &__header {
+      text-align: center;
+      font-size: $superLargeFontSize;
+      margin: .04rem 0;
+      margin-bottom: .08rem;
+    }
+
+    &__number {
+      vertical-align: top;
+      width: calc(100% - .7rem);
+      display: inline-block;
+    }
+
+    &__symbol {
+      vertical-align: top;
+      display: inline-block;
+      width: .7rem;
+
+      & > div {
+        height: .45rem;
+        line-height: .45rem;
+        text-align: center;
+        margin-bottom: .05rem;
+        border-radius: .06rem;
+        font-size: $mdFontSize;
+        box-shadow:0 .01rem 0 0 rgba(0,0,0,0.25);
+      }
+
+      &__del {
+        background: #ACB3BD;
+        position: relative;
+        & > img {
+          width: .25rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &:active {
+          background: #8A919B;
+        }
+      }
+
+      &__clear {
+        background: #ACB3BD;
+        font-size: $largeFontSize !important;
+        &:active {
+          background: #8A919B;
+        }
+      }
+
+      &__submit {
+        color: $white;
+        height: .96rem !important;
+        line-height: .96rem !important;
+        background: $highBackgroundColor;
+        &:active {
+          background: $deepBgColor;
+        }
+      }
+    }
+
+    &__item {
+      vertical-align: top;
+      margin-right: .06rem;
+      display: inline-block;
+      height: .45rem;
+      line-height: .45rem;
+      font-size: $largeFontSize;
+      background: #FFF;
+      margin-bottom: .05rem;
+      width: calc(33.33% - .06rem);
+      text-align: center;
+      border-radius: .06rem;
+      box-shadow:0 .01rem 0 0 rgba(0,0,0,0.25);
+      &:active {
+        background: #CCC;
+      }
+    }
+
+    &__zoo {
+      width: calc(100% - .06rem);
+    }
+  }
+}
