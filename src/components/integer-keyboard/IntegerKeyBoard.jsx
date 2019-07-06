@@ -28,15 +28,35 @@ const IntegerKeyBoard = (props) => {
   };
 
   const handleClearNumbersClick = () => {
-
+    const { onChangeNumber } = props;
+    if (number) {
+      setNumber('');
+      onChangeNumber('');
+    }
   };
 
   const handleSubmitNumberClick = () => {
     const { numberLength, onSubmitNumber } = props;
-    if (numberLength && (numberLength === number.length)) {
-      onSubmitNumber(number);
+    if (numberLength) {
+      if (numberLength === number.length) {
+        onSubmitNumber(number);
+      }
     } else {
       onSubmitNumber(number);
+    }
+  };
+
+  const handleDeleteNumber = () => {
+    const newNumber = number.slice(0, number.length - 1);
+    const { numberLength, onChangeNumber } = props;
+    if (numberLength && newNumber.length >= 0) {
+      if (newNumber.length <= numberLength) {
+        setNumber(newNumber);
+        onChangeNumber(newNumber);
+      }
+    } else {
+      setNumber(newNumber);
+      onChangeNumber(newNumber);
     }
   };
 
@@ -68,7 +88,11 @@ const IntegerKeyBoard = (props) => {
 
   const renderKeyboardSymbol = () => (
     <div className={Styles.root__content__symbol}>
-      <div className={Styles.root__content__symbol__del}>
+      <div
+        className={Styles.root__content__symbol__del}
+        role="none"
+        onClick={handleDeleteNumber}
+      >
         <img src={Images.ICON_DELETE} alt="" />
       </div>
       <div
@@ -90,7 +114,7 @@ const IntegerKeyBoard = (props) => {
 
   const renderKeyBoardHeader = () => (
     <div className={Styles.root__content__header}>
-        美廉美安全输入
+      美廉美安全输入
     </div>
   );
 
