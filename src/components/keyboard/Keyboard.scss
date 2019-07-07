@@ -1,0 +1,14 @@
+/* Created by william on 2019/7/7 16:00 */
+/* Develop by william on 2019/7/7 16:00 */
+@import "../../common/scss/variables";
+.root {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  &__content {
+    background: $keyboardBg;
+    padding-top: .04rem;
+  }
+}

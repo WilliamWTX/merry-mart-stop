@@ -1,0 +1,53 @@
+/* Created by william on 2019/7/7 16:00 */
+/* Develop by william on 2019/7/7 16:00 */
+@import "../../common/scss/variables";
+
+.root {
+  margin-left: .04rem;
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(33.33% - .04rem);
+    background: #FFF;
+    text-align: center;
+    margin-right: .04rem;
+    margin-bottom: .03rem;
+    height: .45rem;
+    line-height: .45rem;
+    font-size: $superLargeFontSize;
+    border-radius: .05rem;
+    box-shadow: 0 .01rem 0 0 rgba(0, 0, 0, 0.25);
+
+    &:active {
+      background: $CCC;
+    }
+  }
+
+  &__english {
+    font-size: $largeFontSize;
+    position: relative;
+    background-color: #ACB3BD;
+
+    &:active {
+      background: #8A919B;
+    }
+  }
+
+  &__del {
+    position: relative;
+    background-color: #ACB3BD;
+
+    &:active {
+      background: #8A919B;
+    }
+
+    & > img {
+      width: .3rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

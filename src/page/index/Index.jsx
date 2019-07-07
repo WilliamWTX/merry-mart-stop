@@ -4,10 +4,12 @@
  */
 import React from 'react';
 import NavigationBar from '../../components/navigation-bar/NavigationBar';
+import Keyboard from '../../components/keyboard/Keyboard';
 
 function IndexComponent() {
   return (
     <div>
+      <Keyboard />
       <NavigationBar />
     </div>
   );

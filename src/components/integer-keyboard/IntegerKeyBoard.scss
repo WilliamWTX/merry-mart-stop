@@ -44,12 +44,13 @@
         margin-bottom: .05rem;
         border-radius: .06rem;
         font-size: $mdFontSize;
-        box-shadow:0 .01rem 0 0 rgba(0,0,0,0.25);
+        box-shadow: 0 .01rem 0 0 rgba(0, 0, 0, 0.25);
       }
 
       &__del {
         background: #ACB3BD;
         position: relative;
+
         & > img {
           width: .25rem;
           position: absolute;
@@ -57,6 +58,7 @@
           left: 50%;
           transform: translate(-50%, -50%);
         }
+
         &:active {
           background: #8A919B;
         }
@@ -65,6 +67,7 @@
       &__clear {
         background: #ACB3BD;
         font-size: $largeFontSize !important;
+
         &:active {
           background: #8A919B;
         }
@@ -75,6 +78,7 @@
         height: .96rem !important;
         line-height: .96rem !important;
         background: $highBackgroundColor;
+
         &:active {
           background: $deepBgColor;
         }
@@ -93,7 +97,8 @@
       width: calc(33.33% - .06rem);
       text-align: center;
       border-radius: .06rem;
-      box-shadow:0 .01rem 0 0 rgba(0,0,0,0.25);
+      box-shadow: 0 .01rem 0 0 rgba(0, 0, 0, 0.25);
+
       &:active {
         background: #CCC;
       }
