@@ -28,7 +28,11 @@ class KeyboardUtil {
     const middleList = [];
     const lastList = [];
     if (!list || !list.length) {
-      return null;
+      return {
+        firstList,
+        middleList,
+        lastList,
+      };
     }
     list.forEach((item, index) => {
       if (index <= start) {

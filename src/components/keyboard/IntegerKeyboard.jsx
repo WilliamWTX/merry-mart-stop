@@ -12,14 +12,25 @@ const IntegerKeyBoard = (props) => {
     onToggleKeyboardEnglish();
   };
 
+  const handleChangeKeyboardNumberClick = (e) => {
+    const { target: { innerText } } = e;
+    const { onChangeKeyboardNumber } = props;
+    onChangeKeyboardNumber(innerText);
+  };
+
+  const handleDeleteStringClick = () => {
+    const { onDeleteString } = props;
+    onDeleteString();
+  };
+
   const IntegerNumber = (data) => {
     const key = `key_${data.index}`;
     if (data.number === 'ABC') {
       return (
         <div
+          key={key}
           role="none"
           onClick={handleToggleKeyboardEnglishClick}
-          key={key}
           className={`${Styles.root__item} ${Styles.root__english}`}
         >
           {data.number}
@@ -31,6 +42,8 @@ const IntegerKeyBoard = (props) => {
       return (
         <div
           key={key}
+          role="none"
+          onClick={handleDeleteStringClick}
           className={`${Styles.root__item} ${Styles.root__del}`}
         >
           <img src={Images.ICON_DELETE} alt="" />
@@ -39,7 +52,12 @@ const IntegerKeyBoard = (props) => {
     }
 
     return (
-      <div key={key} className={Styles.root__item}>
+      <div
+        key={key}
+        role="none"
+        onClick={handleChangeKeyboardNumberClick}
+        className={Styles.root__item}
+      >
         {data.number}
       </div>
     );
@@ -57,6 +75,8 @@ const IntegerKeyBoard = (props) => {
 
 IntegerKeyBoard.propTypes = {
   onToggleKeyboardEnglish: PropTypes.func.isRequired,
+  onChangeKeyboardNumber: PropTypes.func.isRequired,
+  onDeleteString: PropTypes.func.isRequired,
 };
 
 export default IntegerKeyBoard;

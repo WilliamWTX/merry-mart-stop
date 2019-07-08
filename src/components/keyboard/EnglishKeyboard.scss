@@ -1,3 +1,133 @@
 /* Created by william on 2019/7/7 17:08 */
 /* Develop by william on 2019/7/7 17:08 */
 @import "../../common/scss/variables";
+
+.root {
+  margin: 0 .04rem;
+
+  &__first, &__middle, &__last {
+    margin-bottom: .093rem;
+    text-align: center;
+
+    &__item {
+      vertical-align: top;
+      height: .4rem;
+      font-size: $superLargeFontSize;
+      line-height: .4rem;
+      display: inline-block;
+      width: calc(10% - .036rem);
+      text-align: center;
+      margin-right: .04rem;
+      background: $white;
+      border-radius: .05rem;
+      box-shadow: 0 .01rem 0 0 rgba(0, 0, 0, 0.25);
+
+      &:active {
+        background: $CCC;
+      }
+    }
+
+    &__item:last-child {
+      display: inline-block;
+      width: calc(10% - .036rem);
+      margin-right: 0;
+    }
+  }
+
+  &__first {
+
+  }
+
+  &__middle {
+  }
+
+  &__last {
+    &__item {
+      position: relative;
+    }
+
+    &__arrow {
+      width: .4rem !important;
+      background-color: #ACB3BD;
+      float: left;
+
+      &:active {
+        background: #8A919B;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: .2rem;
+      height: .2rem;
+    }
+
+    &__del {
+      width: .4rem !important;
+      float: right;
+      background-color: #ACB3BD;
+
+      img {
+        width: .18rem;
+        height: .18rem;
+      }
+
+      &:active {
+        background: #8A919B;
+      }
+    }
+  }
+
+  &__keyboard {
+    text-align: center;
+    padding-bottom: .04rem;
+
+    & > div {
+      vertical-align: top;
+      display: inline-block;
+      font-size: $superLargeFontSize;
+      height: .4rem;
+      line-height: .4rem;
+      text-align: center;
+      border-radius: .05rem;
+      background: $white;
+      box-shadow: 0 .01rem 0 0 rgba(0, 0, 0, 0.25);
+
+      &:active {
+        background: $CCC;
+      }
+    }
+
+    &__number {
+      margin-right: .04rem;
+      width: calc((100% - ((10% - .036rem) * 5 + 0.24rem)) / 2);
+      background-color: #ACB3BD !important;
+
+      &:active {
+        background: #8A919B !important;
+      }
+    }
+
+    &__space {
+      width: calc((10% - .036rem) * 5 + 0.16rem);
+      background-color: #ACB3BD !important;
+
+      &:active {
+        background: #8A919B !important;
+      }
+    }
+
+    &__symble {
+      margin-left: .04rem;
+      width: calc((100% - ((10% - .036rem) * 5 + 0.24rem)) / 2);
+      background-color: #ACB3BD !important;
+
+      &:active {
+        background: #8A919B !important;
+      }
+    }
+  }
+}
