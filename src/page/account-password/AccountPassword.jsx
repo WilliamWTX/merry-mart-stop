@@ -110,6 +110,8 @@ const AccountPassword = (props) => {
     <div className={Styles.root__submit}>
       <button
         type="button"
+        className={!password.length || !account.length ? Styles.root__submit__disabled : null}
+        disabled={!password.length || !account.length}
       >
         立即登录
       </button>
@@ -126,6 +128,14 @@ const AccountPassword = (props) => {
           手机号码登录
         </div>
         <div>注册</div>
+      </div>
+      <div className={Styles.root__footer__other}>
+        <div className={Styles.root__footer__other__title}>
+          <span />
+          <span>其他登陆方式</span>
+        </div>
+        <div className={Styles.root__footer__other__qq} />
+        <div className={Styles.root__footer__other__wechat} />
       </div>
     </div>
   );
