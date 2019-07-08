@@ -6,4 +6,7 @@ module.exports = {
     document: true,
     localStorage: true,
   },
+  rules: {
+    "no-restricted-syntax": 0,
+  },
 };

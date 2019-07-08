@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import IntegerKeyboard from './IntegerKeyboard';
 import Styles from './Keyboard.scss';
 import KeyboardUtil from '../../util/KeyboardUtil';
 import EnglishKeyboard from './EnglishKeyboard';
 
-const Keyboard = () => {
+const Keyboard = (props) => {
+  const { keyboardNumbers } = props;
   const [numberKeyboard, setNumberKeyboard] = useState(true);
   const [english, setEnglish] = useState(KeyboardUtil.keyboardLowercaseEnglishList());
   const [isLowercaseEnglish, setIsLowercaseEnglish] = useState(true);
-  const [keyboardNumber, setKeyboardNumber] = useState('');
+  const [keyboardNumber, setKeyboardNumber] = useState(keyboardNumbers || '');
+
+  useEffect(() => {
+    setKeyboardNumber(keyboardNumbers);
+  });
 
   /* 切换键盘为英文键盘 */
   const handleToggleKeyboardEnglish = () => {
@@ -23,8 +29,10 @@ const Keyboard = () => {
   /* 删除键盘数字 */
   const handleDeleteString = () => {
     if (keyboardNumber) {
+      const { onChangeKeyboardNumber } = props;
       const newKeyboardNumber = keyboardNumber.slice(0, keyboardNumber.length - 1);
       setKeyboardNumber(newKeyboardNumber);
+      onChangeKeyboardNumber(newKeyboardNumber);
     }
   };
 
@@ -42,6 +50,8 @@ const Keyboard = () => {
   /* 输入键盘数字 */
   const handleChangeKeyboardNumber = (value) => {
     const newKeyboardNumber = `${keyboardNumber}${value}`;
+    const { onChangeKeyboardNumber } = props;
+    onChangeKeyboardNumber(newKeyboardNumber);
     setKeyboardNumber(newKeyboardNumber);
   };
 
@@ -82,5 +92,11 @@ const Keyboard = () => {
     </div>
   );
 };
+
+Keyboard.propTypes = {
+  onChangeKeyboardNumber: PropTypes.func.isRequired,
+  keyboardNumbers: PropTypes.string.isRequired,
+};
+Keyboard.defaultProps = {};
 
 export default Keyboard;

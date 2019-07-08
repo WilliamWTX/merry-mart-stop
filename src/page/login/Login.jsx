@@ -3,6 +3,7 @@
  * Develop by william on 2019/7/1 19:22
  */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from './Login.scss';
 import * as Images from '../../images';
 import IntegerKeyBoard from '../../components/integer-keyboard/IntegerKeyBoard';
@@ -141,6 +142,11 @@ class Login extends React.PureComponent {
     });
   };
 
+  handleToggleLoginState = () => {
+    const { history } = this.props;
+    history.push('/account_password');
+  };
+
   renderSubmitBtn = () => {
     const { phoneNumber, verifyCode, isDisabledSubmitBtn } = this.state;
     return (
@@ -208,7 +214,13 @@ class Login extends React.PureComponent {
   renderLoginFooter = () => (
     <div className={Styles.login__footer}>
       <div className={Styles.login__footer__way}>
-        <button className={Styles.login__footer__way__pwd} type="button">账号密码登陆</button>
+        <button
+          className={Styles.login__footer__way__pwd}
+          type="button"
+          onClick={this.handleToggleLoginState}
+        >
+          账号密码登陆
+        </button>
         <button className={Styles.login__footer__way__register} type="button">注册</button>
       </div>
       <div className={Styles.login__footer__other}>
@@ -265,5 +277,9 @@ class Login extends React.PureComponent {
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
 
 export default Login;

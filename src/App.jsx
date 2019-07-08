@@ -9,6 +9,7 @@ function App() {
       <Route
         key={children.path}
         path={children.path}
+        exact
         component={children.component}
       />
     );

@@ -17,9 +17,11 @@
 
   &__logo {
     text-align: center;
-    font-size: .26rem;
     color: #e43130;
     margin-bottom: .2rem;
+    & > div {
+      font-size: .24rem;
+    }
   }
 
   &__logo img {

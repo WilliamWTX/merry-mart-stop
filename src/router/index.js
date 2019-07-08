@@ -5,12 +5,18 @@
 // const Index = () => import('../page/index/Index');
 import Index from '../page/index/Index';
 import Login from '../page/login/Login';
+import AccountPassword from '../page/account-password/AccountPassword';
 
 const router = () => (
   [
     {
       path: '/login',
       component: Login,
+      children: [],
+    },
+    {
+      path: '/account_password',
+      component: AccountPassword,
       children: [],
     },
     {
