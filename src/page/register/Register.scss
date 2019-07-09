@@ -1,0 +1,165 @@
+/* Created by william on 2019/7/9 10:28 */
+/* Develop by william on 2019/7/9 10:28 */
+@import "../../common/scss/variables";
+
+.login {
+  font-size: $fontSize;
+  height: 100%;
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: 15%;
+    left: .4rem;
+    width: calc(100% - .8rem);
+    text-align: center;
+  }
+
+  &__logo {
+    text-align: center;
+    color: #e43130;
+    margin-bottom: .2rem;
+    & > div {
+      font-size: .24rem;
+    }
+  }
+
+  &__logo img {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+  }
+
+  &__phone {
+    position: relative;
+    text-align: left;
+    height: .4rem;
+    border-bottom: .01rem solid $baseBackgroundColor;
+
+    & > button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include button(1rem, .4rem, transparent, $highBackgroundColor, .1rem, $fontSize)
+    }
+
+    & > div {
+      height: .4rem;
+      line-height: .4rem;
+      width: calc(100% - 1rem);
+      text-align: left;
+      color: $fontColor;
+      padding-left: .1rem;
+    }
+
+    span {
+      vertical-align: -.07rem;
+      width: .02rem;
+      height: .25rem;
+      margin-left: .03rem;
+      background: $baseBackgroundColor;
+      display: none;
+
+      &.phone__cursor {
+        display: inline-block;
+        animation: cursor 1s infinite steps(1, start);
+      }
+    }
+  }
+
+  &__code {
+    text-align: left;
+    height: .4rem;
+    margin-top: .03rem;
+
+    & > div {
+      height: .4rem;
+      width: 100%;
+      color: $fontColor;
+      line-height: .4rem;
+      padding-left: .1rem;
+      border-bottom: .01rem solid $fontColor;
+
+      span {
+        vertical-align: -.07rem;
+        width: .02rem;
+        height: .25rem;
+        margin-left: .03rem;
+        background: $baseBackgroundColor;
+        display: none;
+
+        &.code__cursor {
+          display: inline-block;
+          animation: cursor 1s infinite steps(1, start);
+        }
+      }
+    }
+  }
+
+  &__btn {
+    @include button(100%, .4rem, $highBackgroundColor, $white, .5rem, $mdFontSize);
+    margin-top: .2rem;
+  }
+
+  &__btn-disabled {
+    background: $disabledBgColor;
+  }
+
+  &__footer {
+    button {
+      border: 0;
+      outline: none;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      font-size: $fontSize;
+    }
+    &__other {
+      height: .3rem;
+      line-height: .3rem;
+      margin-top: .8rem;
+      &__title {
+        position: relative;
+        text-align: center;
+        margin-bottom: .1rem;
+        span:last-child {
+          color: $CCC;
+          background: $white;
+          position: relative;
+          z-index: 1;
+          padding: 0 .1rem;
+        }
+        span:first-child {
+          position: absolute;
+          width: 100%;
+          height: .01rem;
+          background: $CCC;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          z-index: 0;
+        }
+      }
+    }
+    &__way {
+      margin-top: .1rem;
+      &__pwd {
+        color: $highFontColor;
+      }
+    }
+  }
+}
+
+@keyframes cursor {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

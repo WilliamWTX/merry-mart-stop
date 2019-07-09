@@ -5,6 +5,7 @@
 // const Index = () => import('../page/index/Index');
 import Index from '../page/index/Index';
 import Login from '../page/login/Login';
+import Register from '../page/register/Register';
 import AccountPassword from '../page/account-password/AccountPassword';
 
 const router = () => (
@@ -12,6 +13,11 @@ const router = () => (
     {
       path: '/login',
       component: Login,
+      children: [],
+    },
+    {
+      path: '/register',
+      component: Register,
       children: [],
     },
     {

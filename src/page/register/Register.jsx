@@ -1,15 +1,15 @@
 /**
- * Created by william on 2019/7/1 19:22
- * Develop by william on 2019/7/1 19:22
+ * Created by william on 2019/7/9 10:22
+ * Develop by william on 2019/7/9 10:22
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Styles from './Login.scss';
+import Styles from './Register.scss';
 import * as Images from '../../images';
 import IntegerKeyBoard from '../../components/integer-keyboard/IntegerKeyBoard';
 import Toast from '../../components/toast/Toast';
 
-class Login extends React.PureComponent {
+class Register extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -142,14 +142,9 @@ class Login extends React.PureComponent {
     });
   };
 
-  handleToggleLoginState = () => {
+  handleToggleLogin = () => {
     const { history } = this.props;
-    history.push('/account_password');
-  };
-
-  handleRegisterClick = () => {
-    const { history } = this.props;
-    history.push('/register');
+    history.push('/login');
   };
 
   renderSubmitBtn = () => {
@@ -222,25 +217,10 @@ class Login extends React.PureComponent {
         <button
           className={Styles.login__footer__way__pwd}
           type="button"
-          onClick={this.handleToggleLoginState}
+          onClick={this.handleToggleLogin}
         >
-          账号密码登陆
+          已有账号，去登录？
         </button>
-        <button
-          onClick={this.handleRegisterClick}
-          className={Styles.login__footer__way__register}
-          type="button"
-        >
-注册
-        </button>
-      </div>
-      <div className={Styles.login__footer__other}>
-        <div className={Styles.login__footer__other__title}>
-          <span />
-          <span>其他登陆方式</span>
-        </div>
-        <div className={Styles.login__footer__other__qq} />
-        <div className={Styles.login__footer__other__wechat} />
       </div>
     </div>
   );
@@ -289,8 +269,8 @@ class Login extends React.PureComponent {
   }
 }
 
-Login.propTypes = {
+Register.propTypes = {
   history: PropTypes.shape().isRequired,
 };
 
-export default Login;
+export default Register;

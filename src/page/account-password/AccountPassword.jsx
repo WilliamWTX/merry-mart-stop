@@ -60,6 +60,11 @@ const AccountPassword = (props) => {
     history.push('/login');
   };
 
+  const handleRegisterClick = () => {
+    const { history } = props;
+    history.push('/register');
+  };
+
   const renderFormHeader = () => (
     <div className={Styles.root__logo}>
       <img src={Images.ICON_LOGO} alt="" />
@@ -127,7 +132,12 @@ const AccountPassword = (props) => {
         >
           手机号码登录
         </div>
-        <div>注册</div>
+        <div
+          role="none"
+          onClick={handleRegisterClick}
+        >
+          注册
+        </div>
       </div>
       <div className={Styles.root__footer__other}>
         <div className={Styles.root__footer__other__title}>
