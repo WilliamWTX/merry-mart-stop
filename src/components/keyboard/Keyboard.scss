@@ -11,4 +11,23 @@
     background: $keyboardBg;
     padding-top: .04rem;
   }
+  &__header {
+    text-align: center;
+    font-size: $superLargeFontSize;
+    margin-bottom: .08rem;
+    padding-top: .04rem;
+    position: relative;
+    button {
+      position: absolute;
+      right: .1rem;
+      top: calc(50% + .02rem);
+      transform: translateY(-50%);
+      color: $highBackgroundColor;
+      background: transparent;
+      outline: none;
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

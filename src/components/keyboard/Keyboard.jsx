@@ -55,6 +55,11 @@ const Keyboard = (props) => {
     setKeyboardNumber(newKeyboardNumber);
   };
 
+  const handleCompleteInputClick = () => {
+    const { onCompleteInput } = props;
+    onCompleteInput();
+  };
+
   /* 切换键盘为符号键盘 --- 以后有机会开发，暂时不需要 */
   const handleToggleSymbolKeyboard = () => {
 
@@ -79,8 +84,21 @@ const Keyboard = (props) => {
     />
   );
 
+  const renderKeyboardHeader = () => (
+    <div className={Styles.root__header}>
+      廉美安全输入
+      <button
+        type="button"
+        onClick={handleCompleteInputClick}
+      >
+        完成
+      </button>
+    </div>
+  );
+
   const renderKeyboardContent = () => (
     <div className={Styles.root__content}>
+      {renderKeyboardHeader()}
       {numberKeyboard ? renderIntegerKeyboard() : null}
       {!numberKeyboard ? renderEnglishKeyboard() : null}
     </div>
@@ -96,6 +114,7 @@ const Keyboard = (props) => {
 Keyboard.propTypes = {
   onChangeKeyboardNumber: PropTypes.func.isRequired,
   keyboardNumbers: PropTypes.string.isRequired,
+  onCompleteInput: PropTypes.func.isRequired,
 };
 Keyboard.defaultProps = {};
 

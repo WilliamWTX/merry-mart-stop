@@ -65,6 +65,10 @@ const AccountPassword = (props) => {
     history.push('/register');
   };
 
+  const handleCompleteInput = () => {
+    setIsShowKeyboard(false);
+  };
+
   const renderFormHeader = () => (
     <div className={Styles.root__logo}>
       <img src={Images.ICON_LOGO} alt="" />
@@ -154,6 +158,7 @@ const AccountPassword = (props) => {
     <Keyboard
       keyboardNumbers={isAccountKeyboard ? account : password}
       onChangeKeyboardNumber={handleChangeKeyboardNumber}
+      onCompleteInput={handleCompleteInput}
     />
   );
 
