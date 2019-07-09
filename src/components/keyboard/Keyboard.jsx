@@ -86,7 +86,7 @@ const Keyboard = (props) => {
 
   const renderKeyboardHeader = () => (
     <div className={Styles.root__header}>
-      廉美安全输入
+      美廉美安全输入
       <button
         type="button"
         onClick={handleCompleteInputClick}

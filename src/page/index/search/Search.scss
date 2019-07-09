@@ -1,0 +1,43 @@
+/* Created by william on 2019/7/9 11:43 */
+/* Develop by william on 2019/7/9 11:43 */
+@import "../../../common/scss/variables";
+.root {
+  &__search {
+    padding: .1rem 0;
+    & > * {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    img {
+      width: .3rem;
+      margin: 0 .14rem;
+      position: relative;
+      top: -.02rem;
+    }
+
+    &__input {
+      width: calc(100% - 1.2rem);
+      background: $white;
+      position: relative;
+      input {
+        @include input(100%, .3rem, $white, $CCC, .5rem, $fontSize, 1px solid $baseFontColor);
+        padding-left: .33rem;
+        font-size: $smallFontSize;
+      }
+      img {
+        width: .18rem;
+        height: .18rem;
+        margin: 0;
+        position: absolute;
+        top: calc(50% - .09rem);
+        left: .1rem;
+      }
+    }
+
+    &__login {
+      width: .3rem;
+      margin: 0 .16rem;
+    }
+  }
+}
