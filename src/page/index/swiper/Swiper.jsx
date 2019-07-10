@@ -2,8 +2,10 @@
  * Created by william on 2019/7/9 16:20
  * Develop by william on 2019/7/9 16:20
  */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Swiper from 'swiper';
 import * as Images from '../../../images';
+import 'swiper/dist/css/swiper.min.css';
 import Styles from './Swiper.scss';
 
 const imgList = () => [
@@ -14,43 +16,52 @@ const imgList = () => [
   Images.IMG_SWIPER5,
 ];
 
-const ImageAutoPlayComponent = () => {
-  const [imageList, setImageList] = useState(imgList());
-  let imageRef = null;
-  console.log(setImageList);
-  useEffect(() => {
-    if (imageRef) {
-      imageRef.style.width = document.body.clientWidth;
-      console.log(imageRef.style);
-    }
-  });
-  const bindImageSlideItem = (ref) => {
+const SwiperComponent = () => {
+  let swiperPaginationRef = null;
+  // eslint-disable-next-line no-unused-vars
+  let swiper = null;
+  const bindSwiperPagination = (ref) => {
     if (ref) {
-      imageRef = ref;
+      swiperPaginationRef = ref;
     }
   };
 
-  const imageAutoPlaySlide = () => imageList.map((item, index) => {
+  const bindSwiperRef = (ref) => {
+    if (ref && swiperPaginationRef) {
+      swiper = new Swiper(ref, {
+        spaceBetween: 30,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: swiperPaginationRef,
+        },
+      });
+    }
+  };
+
+  const swiperSlide = () => imgList().map((item, index) => {
     const key = `key_${index}`;
     return (
-      <div
-        ref={bindImageSlideItem}
-        key={key}
-        className={Styles.root__slide}
-      >
-        <img src={item} alt="" />
+      <div key={key} className="swiper-slide">
+        <img className={Styles.root__img} src={item} alt="" />
       </div>
     );
   });
 
-  const imageAutoPlayContent = () => (
-    <div className={Styles.root}>
-      <div className={Styles.root__wrapper}>
-        {imageAutoPlaySlide()}
+  const swiperContent = () => (
+    <div className={Styles.root} ref={bindSwiperRef}>
+      <div className="swiper-wrapper">
+        {swiperSlide()}
       </div>
+      <div className={Styles.root__pagination} ref={bindSwiperPagination} />
     </div>
   );
-  return imageAutoPlayContent();
+
+  return swiperContent();
 };
 
-export default ImageAutoPlayComponent;
+export default SwiperComponent;
