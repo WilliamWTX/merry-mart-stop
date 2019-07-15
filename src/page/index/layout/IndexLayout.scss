@@ -1,5 +1,7 @@
 /* Created by william on 2019/7/9 15:07 */
 /* Develop by william on 2019/7/9 15:07 */
+@import "../../../common/scss/variables";
 .root {
   height: 100%;
+  background: $globalBackgroundColor;
 }

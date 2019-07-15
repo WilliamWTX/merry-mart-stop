@@ -3,32 +3,31 @@
  * Develop by william on 2019/7/2 10:42
  */
 import React from 'react';
-import NavigationBar from '../../components/navigation-bar/NavigationBar';
-import Search from './search/Search';
-import Styles from './Index.scss';
-import Swiper from './swiper/Swiper';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import IndexLayout from './layout/IndexLayout';
 
-const IndexComponent = () => {
-  const renderSearch = () => (
-    <div className={Styles.root__search}>
-      <Search />
-    </div>
+const IndexComponent = (props) => {
+  const handleLogin = () => {
+    const { history } = props;
+    history.push('/login');
+  };
+
+  const renderIndexLayout = () => (
+    <IndexLayout
+      onLogin={handleLogin}
+    />
   );
 
-  const renderSwiper = () => (
-    <Swiper />
+  return (
+    <React.Fragment>
+      {renderIndexLayout()}
+    </React.Fragment>
   );
-
-
-  const renderIndexContent = () => (
-    <div className={Styles.root}>
-      {renderSearch()}
-      {renderSwiper()}
-      <NavigationBar />
-    </div>
-  );
-
-  return renderIndexContent();
 };
 
-export default IndexComponent;
+IndexComponent.propTypes = {
+  history: PropTypes.shape().isRequired,
+};
+
+export default withRouter(IndexComponent);

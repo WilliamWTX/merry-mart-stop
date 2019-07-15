@@ -1,0 +1,25 @@
+/* Created by william on 2019/7/12 18:07 */
+/* Develop by william on 2019/7/12 18:07 */
+@import "../../../common/scss/variables";
+.root {
+  position: relative;
+  top: -.15rem;
+  background: $white;
+  z-index: 10;
+  border-top-left-radius: .15rem;
+  border-top-right-radius: .15rem;
+  padding-top: .1rem;
+  &__item {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    padding-bottom: .1rem;
+    img {
+      width: 50%;
+    }
+    div {
+      color: $fontColor;
+      font-size: $smallFontSize;
+    }
+  }
+}

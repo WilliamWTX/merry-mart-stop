@@ -1,0 +1,11 @@
+/* Created by william on 2019/7/12 16:43 */
+/* Develop by william on 2019/7/12 16:43 */
+.pagination {
+  .swiper-pagination-bullet {
+    background: transparent !important;
+    border: .02rem solid #FFF !important;
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #FFF !important;
+  }
+}

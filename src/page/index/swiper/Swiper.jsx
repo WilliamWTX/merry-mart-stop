@@ -7,6 +7,7 @@ import Swiper from 'swiper';
 import * as Images from '../../../images';
 import 'swiper/dist/css/swiper.min.css';
 import Styles from './Swiper.scss';
+import './Swiper.module.scss';
 
 const imgList = () => [
   Images.IMG_SWIPER1,
@@ -57,7 +58,7 @@ const SwiperComponent = () => {
       <div className="swiper-wrapper">
         {swiperSlide()}
       </div>
-      <div className={Styles.root__pagination} ref={bindSwiperPagination} />
+      <div className={`${Styles.root__pagination} pagination`} ref={bindSwiperPagination} />
     </div>
   );
 
