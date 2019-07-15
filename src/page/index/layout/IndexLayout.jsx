@@ -9,17 +9,29 @@ import Styles from './IndexLayout.scss';
 import Search from '../search/Search';
 import NavigationBar from '../../../components/navigation-bar/NavigationBar';
 import GoodsType from '../goods-type/GoodsType';
+import DailyShopping from '../daily-shopping/DailyShopping';
+
+let scrollContainerRef = null;
 
 const IndexLayout = (props) => {
+  const { pageScrollHeight } = props;
   const handleLogin = () => {
     const { onLogin } = props;
     onLogin();
+  };
+
+  const handleScrollDataList = () => {
+    const { onScrollData } = props;
+    if (scrollContainerRef) {
+      onScrollData(scrollContainerRef);
+    }
   };
 
   const renderSearch = () => (
     <div className={Styles.root__search}>
       <Search
         onLogin={handleLogin}
+        pageScrollHeight={pageScrollHeight}
       />
     </div>
   );
@@ -31,11 +43,23 @@ const IndexLayout = (props) => {
     <GoodsType />
   );
 
+  const renderDailyShopping = type => (
+    <DailyShopping type={type} />
+  );
+
   const renderIndexContent = () => (
     <div className={Styles.root}>
       {renderSearch()}
-      {renderSwiper()}
-      {renderGoodsType()}
+      <div
+        className={Styles.root__data}
+        ref={(el) => { scrollContainerRef = el; }}
+        onScroll={handleScrollDataList}
+      >
+        {renderSwiper()}
+        {renderGoodsType()}
+        {renderDailyShopping('daily')}
+        {renderDailyShopping('master')}
+      </div>
       <NavigationBar />
     </div>
   );
@@ -45,6 +69,11 @@ const IndexLayout = (props) => {
 
 IndexLayout.propTypes = {
   onLogin: PropTypes.func.isRequired,
+  onScrollData: PropTypes.func.isRequired,
+  pageScrollHeight: PropTypes.number,
+};
+IndexLayout.defaultProps = {
+  pageScrollHeight: null,
 };
 
 export default IndexLayout;

@@ -1,3 +1,50 @@
 /* Created by william on 2019/7/15 15:15 */
 /* Develop by william on 2019/7/15 15:15 */
 @import "../../../common/scss/variables";
+
+.root {
+  &__title {
+    &__bg {
+      height: .3rem;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    background: $white;
+    margin: 0 .1rem;
+    border-top-left-radius: .06rem;
+    border-top-right-radius: .06rem;
+  }
+
+  &__item {
+    display: inline-block;
+    padding: .08rem 0;
+    vertical-align: top;
+    text-align: center;
+    width: 25%;
+    border-right: .01rem solid #f5f5f5;
+    font-size: $smallFontSize;
+
+    &__name {
+      background: linear-gradient(90deg, #FF2A2A, #F139D2);
+      color: transparent;
+      -webkit-background-clip: text;
+      font-weight: 600;
+    }
+
+    &__title {
+      font-size: $smallFontSize;
+      margin: .05rem 0;
+    }
+
+    img {
+      width: .5rem;
+    }
+  }
+
+  &__item__style {
+    border-bottom: .01rem solid #f5f5f5;
+  }
+}
+
