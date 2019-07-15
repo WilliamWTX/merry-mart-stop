@@ -25,6 +25,8 @@
 ### 2019-07-15：
     1.重构index页面布局
     
+    2.添加index頁面的数据列表
+    
 ## 前端技术栈：
 - create-react-app
 - React v16.8.6
