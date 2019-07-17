@@ -1,14 +1,15 @@
 /* Created by william on 2019/7/9 11:43 */
 /* Develop by william on 2019/7/9 11:43 */
 @import "../../../common/scss/variables";
+
 .root {
-  transition: background 200ms linear;
   &.root__bg {
     background: $highBackgroundColor;
-    transition: background 200ms linear;
   }
+
   &__search {
     padding: .1rem 0;
+
     & > * {
       display: inline-block;
       vertical-align: middle;
@@ -25,11 +26,13 @@
       width: calc(100% - 1.2rem);
       background: transparent;
       position: relative;
+
       input {
         @include input(100%, .3rem, $white, $CCC, .5rem, $fontSize, 1px solid transparent);
         padding-left: .33rem;
         font-size: $smallFontSize;
       }
+
       img {
         width: .18rem;
         height: .18rem;

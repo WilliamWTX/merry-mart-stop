@@ -6,8 +6,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import IndexLayout from './layout/IndexLayout';
+import RecommendList from '../../mock/index/RecommendList';
 
 const IndexComponent = (props) => {
+  const [recommendListData] = useState(RecommendList());
   const [pageScrollHeight, setPageScrollHeight] = useState(null);
   const handleLogin = () => {
     const { history } = props;
@@ -21,6 +23,7 @@ const IndexComponent = (props) => {
   const renderIndexLayout = () => (
     <IndexLayout
       onLogin={handleLogin}
+      recommendListData={recommendListData}
       onScrollData={handleScrollData}
       pageScrollHeight={pageScrollHeight}
     />

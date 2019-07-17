@@ -1,0 +1,90 @@
+/* Created by william on 2019/7/16 10:46 */
+/* Develop by william on 2019/7/16 10:46 */
+@import "../../../common/scss/variables";
+
+.root {
+  &__title {
+    padding: 0 .1rem;
+
+    img {
+      height: .3rem;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    margin: 0 .06rem;
+
+    &__item {
+      background: #FFF;
+      display: inline-block;
+      vertical-align: top;
+      width: calc(50% - 0.08rem);
+      padding-bottom: .08rem;
+      margin: 0 .04rem;
+      margin-bottom: .1rem;
+      box-shadow: inset .01rem -.02rem $fontColor #000;
+
+      img {
+        width: 100%;
+        height: 1.8rem;
+      }
+
+      &__detail {
+        padding: 0 .06rem;
+      }
+
+      &__name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: $fontSize;
+        color: $highFontColor;
+      }
+
+      &__price {
+        margin-top: .1rem;
+
+        &:after {
+          content: '';
+          display: block;
+          clear: both;
+        }
+
+        & > div:first-child {
+          float: left;
+          color: $baseBackgroundColor;
+          font-weight: 600;
+          font-size: $mdFontSize;
+        }
+
+        & > div:last-child {
+          float: right;
+          font-weight: 600;
+          color: $baseBackgroundColor;
+        }
+      }
+
+      &__shop {
+        position: relative;
+        display: inline-block;
+        padding-right: .08rem;
+        margin-top: .03rem;
+        &:after {
+          content: '';
+          display: block;
+          border-top: .01rem solid $highFontColor;
+          border-left: .01rem solid $highFontColor;
+          transform-origin: 50%;
+          transform: rotate(135deg);
+          position: absolute;
+          width: .06rem;
+          height: .06rem;
+          top: 50%;
+          margin-top: -.03rem;
+          right: 0;
+        }
+      }
+    }
+  }
+}

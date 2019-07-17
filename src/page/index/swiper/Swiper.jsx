@@ -31,6 +31,7 @@ const SwiperComponent = () => {
     if (ref && swiperPaginationRef) {
       swiper = new Swiper(ref, {
         spaceBetween: 30,
+        slidesPerView: 1,
         loop: true,
         centeredSlides: true,
         autoplay: {

@@ -10,11 +10,12 @@ import Search from '../search/Search';
 import NavigationBar from '../../../components/navigation-bar/NavigationBar';
 import GoodsType from '../goods-type/GoodsType';
 import DailyShopping from '../daily-shopping/DailyShopping';
+import RecommendList from '../recommend_list/RecommendList';
 
 let scrollContainerRef = null;
 
 const IndexLayout = (props) => {
-  const { pageScrollHeight } = props;
+  const { pageScrollHeight, recommendListData } = props;
   const handleLogin = () => {
     const { onLogin } = props;
     onLogin();
@@ -47,18 +48,27 @@ const IndexLayout = (props) => {
     <DailyShopping type={type} />
   );
 
+  const renderRecommendList = () => (
+    <RecommendList
+      recommendListData={recommendListData}
+    />
+  );
+
   const renderIndexContent = () => (
     <div className={Styles.root}>
       {renderSearch()}
       <div
         className={Styles.root__data}
-        ref={(el) => { scrollContainerRef = el; }}
+        ref={(el) => {
+          scrollContainerRef = el;
+        }}
         onScroll={handleScrollDataList}
       >
         {renderSwiper()}
         {renderGoodsType()}
         {renderDailyShopping('daily')}
         {renderDailyShopping('master')}
+        {renderRecommendList()}
       </div>
       <NavigationBar />
     </div>
@@ -70,10 +80,12 @@ const IndexLayout = (props) => {
 IndexLayout.propTypes = {
   onLogin: PropTypes.func.isRequired,
   onScrollData: PropTypes.func.isRequired,
+  recommendListData: PropTypes.arrayOf(PropTypes.shape()),
   pageScrollHeight: PropTypes.number,
 };
 IndexLayout.defaultProps = {
   pageScrollHeight: null,
+  recommendListData: null,
 };
 
 export default IndexLayout;
