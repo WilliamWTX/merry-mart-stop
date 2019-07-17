@@ -10,10 +10,21 @@ import RecommendList from '../../mock/index/RecommendList';
 
 const IndexComponent = (props) => {
   const [recommendListData] = useState(RecommendList());
+  const [tabIndex, setTabIndex] = useState(0);
   const [pageScrollHeight, setPageScrollHeight] = useState(null);
   const handleLogin = () => {
     const { history } = props;
     history.push('/login');
+  };
+
+  const handleChangeTab = (index) => {
+    setTabIndex(index);
+    const { history } = props;
+    if (index === 0) {
+      history.push('/');
+    } else if (index === 1) {
+      history.push('/category');
+    }
   };
 
   const handleScrollData = (elem) => {
@@ -26,6 +37,8 @@ const IndexComponent = (props) => {
       recommendListData={recommendListData}
       onScrollData={handleScrollData}
       pageScrollHeight={pageScrollHeight}
+      onChangeTab={handleChangeTab}
+      tabIndex={tabIndex}
     />
   );
 

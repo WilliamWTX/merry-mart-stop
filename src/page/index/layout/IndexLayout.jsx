@@ -15,7 +15,7 @@ import RecommendList from '../recommend_list/RecommendList';
 let scrollContainerRef = null;
 
 const IndexLayout = (props) => {
-  const { pageScrollHeight, recommendListData } = props;
+  const { pageScrollHeight, recommendListData, tabIndex } = props;
   const handleLogin = () => {
     const { onLogin } = props;
     onLogin();
@@ -26,6 +26,11 @@ const IndexLayout = (props) => {
     if (scrollContainerRef) {
       onScrollData(scrollContainerRef);
     }
+  };
+
+  const handleChangeTab = (index) => {
+    const { onChangeTab } = props;
+    onChangeTab(index);
   };
 
   const renderSearch = () => (
@@ -70,7 +75,10 @@ const IndexLayout = (props) => {
         {renderDailyShopping('master')}
         {renderRecommendList()}
       </div>
-      <NavigationBar />
+      <NavigationBar
+        onChangeTab={handleChangeTab}
+        tabIndex={tabIndex}
+      />
     </div>
   );
 
@@ -80,8 +88,10 @@ const IndexLayout = (props) => {
 IndexLayout.propTypes = {
   onLogin: PropTypes.func.isRequired,
   onScrollData: PropTypes.func.isRequired,
+  onChangeTab: PropTypes.func.isRequired,
   recommendListData: PropTypes.arrayOf(PropTypes.shape()),
   pageScrollHeight: PropTypes.number,
+  tabIndex: PropTypes.number.isRequired,
 };
 IndexLayout.defaultProps = {
   pageScrollHeight: null,
