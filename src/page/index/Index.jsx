@@ -23,7 +23,7 @@ const IndexComponent = (props) => {
     if (index === 0) {
       history.push('/');
     } else if (index === 1) {
-      history.push('/category');
+      history.push('/category?from=home');
     }
   };
 

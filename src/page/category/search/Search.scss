@@ -1,0 +1,30 @@
+/* Created by william on 2019/7/18 17:31 */
+/* Develop by william on 2019/7/18 17:31 */
+@import "../../../common/scss/variables";
+.root {
+  height: .5rem;
+  position: relative;
+  padding: .1rem 0;
+  padding-left: .35rem;
+  background: $white;
+  border-bottom: 1px solid #E5E5E5;
+
+  input {
+    vertical-align: top;
+    @include input(calc(100% - .4rem), .3rem, $globalBackgroundColor, $CCC, .5rem, $fontSize, 1px solid transparent);
+  }
+
+  &__back {
+    position: absolute;
+    left: .1rem;
+    top: calc(50% - .075rem);
+    width: .15rem;
+    height: .15rem;
+  }
+
+  &__menu {
+    width: .2rem;
+    height: .3rem;
+    margin-left: .1rem;
+  }
+}

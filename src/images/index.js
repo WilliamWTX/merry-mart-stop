@@ -16,6 +16,8 @@ export { default as ICON_DELETE } from './icon_delete.png';
 export { default as ICON_ARROW } from './icon_arrow.svg';
 export { default as ICON_VIEW } from './icon_view.svg';
 export { default as ICON_LOGO_BG } from './icon_logo_bg.png';
+export { default as ICON_GO_BACK } from './icon_go_back.svg';
+export { default as ICON_MENU } from './icon_menu.svg';
 export { default as ICON_SEARCH } from './icon_search.svg';
 export { default as IMG_SWIPER1 } from './swiper1.jpg';
 export { default as IMG_SWIPER2 } from './swiper2.jpg';

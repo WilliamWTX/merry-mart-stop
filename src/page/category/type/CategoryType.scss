@@ -1,0 +1,14 @@
+/* Created by william on 2019/7/18 15:49 */
+/* Develop by william on 2019/7/18 15:49 */
+@import "../../../common/scss/variables";
+.root {
+  color: $fontColor;
+  height: .45rem;
+  line-height: .45rem;
+  padding: 0 .06rem;
+  text-align: center;
+  &.active {
+    color: $baseBackgroundColor;
+    background: $white;
+  }
+}

@@ -1,2 +1,13 @@
 /* Created by william on 2019/7/17 14:31 */
 /* Develop by william on 2019/7/17 14:31 */
+@import "../../../common/scss/variables";
+.root {
+  height: 100%;
+  overflow: hidden;
+  background: $globalBackgroundColor;
+  &__type {
+    height: 100%;
+    display: inline-block;
+    width: .9rem;
+  }
+}
