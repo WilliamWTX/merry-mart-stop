@@ -16,6 +16,22 @@ const CategoryLayout = (props) => {
     onChangeCategoryType(index);
   };
 
+  const handleTouchStart = (e) => {
+    const { onTouchStart } = props;
+    onTouchStart(e);
+  };
+
+  const handleTouchMove = (e) => {
+    e.preventDefault();
+    const { onTouchMove } = props;
+    onTouchMove(e);
+  };
+
+  const handleTouchEnd = (e) => {
+    const { onTouchEnd } = props;
+    onTouchEnd(e);
+  };
+
   const bindScrollCategoryTypeRef = (ref) => {
     if (ref) {
       const { onSetCanScrollHeight } = props;
@@ -39,20 +55,28 @@ const CategoryLayout = (props) => {
   const renderCategoryContent = () => (
     <React.Fragment>
       <div className={Styles.root}>
-        <div>
+        <div className={Styles.root__search}>
           {renderSearch()}
         </div>
-        <div
-          className={Styles.root__type}
-        >
+        <div className={Styles.root__content}>
           <div
-            ref={bindScrollCategoryTypeRef}
-            style={{
-              transform: `translateY(${-scrollTop}rem)`,
-              transition: 'transform 200ms linear',
-            }}
+            className={Styles.root__type}
           >
-            {renderCategoryTypeList()}
+            <div
+              ref={bindScrollCategoryTypeRef}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              style={{
+                transform: `translateY(${-scrollTop}rem)`,
+                transition: 'transform 200ms linear',
+              }}
+            >
+              {renderCategoryTypeList()}
+            </div>
+          </div>
+          <div className={Styles.root__content__list}>
+            11111
           </div>
         </div>
       </div>
@@ -68,6 +92,9 @@ CategoryLayout.propTypes = {
   selectedCategoryIndex: PropTypes.number.isRequired,
   scrollTop: PropTypes.number.isRequired,
   onSetCanScrollHeight: PropTypes.func.isRequired,
+  onTouchStart: PropTypes.func.isRequired,
+  onTouchEnd: PropTypes.func.isRequired,
+  onTouchMove: PropTypes.func.isRequired,
 };
 CategoryLayout.defaultProps = {
   categoryTypeList: null,

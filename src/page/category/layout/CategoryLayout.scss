@@ -5,9 +5,27 @@
   height: 100%;
   overflow: hidden;
   background: $globalBackgroundColor;
-  &__type {
+  &__search {
+    position: relative;
+    z-index: 100;
+  }
+  &__content {
     height: 100%;
+    &__list {
+      display: inline-block;
+      vertical-align: top;
+      width: calc(100% - .9rem);
+      height: 100%;
+      background: $white;
+    }
+  }
+  &__type {
     display: inline-block;
+    vertical-align: top;
+    height: 100%;
     width: .9rem;
+    & > div {
+      overflow: auto;
+    }
   }
 }

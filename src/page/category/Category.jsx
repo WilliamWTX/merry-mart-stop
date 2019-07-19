@@ -15,12 +15,14 @@ class Category extends React.PureComponent {
       categoryItemHeight: 0.45,
       scrollTop: 0,
       scrollHeight: 0,
+      touchStartScrollY: 0,
+      touchEndScrollY: 0,
     };
   }
 
   handleChangeCategoryType = (index) => {
     const { categoryItemHeight, scrollHeight } = this.state;
-    if (categoryItemHeight * index < scrollHeight / 100) {
+    if (categoryItemHeight * index < scrollHeight) {
       this.setState({
         selectedCategoryIndex: index,
         scrollTop: index !== 0 ? categoryItemHeight * index : categoryItemHeight,
@@ -28,14 +30,46 @@ class Category extends React.PureComponent {
     } else {
       this.setState({
         selectedCategoryIndex: index,
+        scrollTop: categoryItemHeight,
       });
     }
   };
 
   handleSetCanScrollHeight = (scrollHeight) => {
     this.setState({
-      scrollHeight,
+      scrollHeight: scrollHeight / 100,
     });
+  };
+
+  handleTouchStart = (e) => {
+    const { targetTouches } = e;
+    const { pageY } = targetTouches[0];
+    this.setState({
+      touchStartScrollY: pageY,
+    });
+  };
+
+  handleTouchMove = (e) => {
+    const { targetTouches } = e;
+    const { touchStartScrollY } = this.state;
+    const { pageY } = targetTouches[0];
+    const scrollDistance = (pageY - touchStartScrollY) / 100;
+    if (scrollDistance < 0 && scrollDistance >= -1.5) {
+      this.setState({
+        scrollTop: 2.2,
+      });
+    } else if (scrollDistance > 0 && scrollDistance <= 1.5) {
+      this.setState({
+        scrollTop: -1.5,
+      });
+    }
+  };
+
+  handleTouchEnd = () => {
+    const {
+      touchStartScrollY, touchEndScrollY,
+    } = this.state;
+    parseInt(Math.abs(touchEndScrollY - touchStartScrollY) / 100, 10);
   };
 
   renderCategoryLayout = () => {
@@ -44,6 +78,9 @@ class Category extends React.PureComponent {
       <CategoryLayout
         onChangeCategoryType={this.handleChangeCategoryType}
         onSetCanScrollHeight={this.handleSetCanScrollHeight}
+        onTouchStart={this.handleTouchStart}
+        onTouchMove={this.handleTouchMove}
+        onTouchEnd={this.handleTouchEnd}
         {...{ scrollTop, categoryTypeList, selectedCategoryIndex }}
       />
     );
