@@ -22,22 +22,28 @@ class Category extends React.PureComponent {
 
   handleChangeCategoryType = (index) => {
     const { categoryItemHeight, scrollHeight } = this.state;
-    if (categoryItemHeight * index < scrollHeight) {
-      this.setState({
-        selectedCategoryIndex: index,
-        scrollTop: index !== 0 ? categoryItemHeight * index : categoryItemHeight,
-      });
+    if (scrollHeight > 0) {
+      if (categoryItemHeight * index < scrollHeight) {
+        this.setState({
+          selectedCategoryIndex: index,
+          scrollTop: index !== 0 ? categoryItemHeight * index : categoryItemHeight,
+        });
+      } else {
+        this.setState({
+          selectedCategoryIndex: index,
+          scrollTop: scrollHeight,
+        });
+      }
     } else {
       this.setState({
         selectedCategoryIndex: index,
-        scrollTop: categoryItemHeight,
       });
     }
   };
 
   handleSetCanScrollHeight = (scrollHeight) => {
     this.setState({
-      scrollHeight: scrollHeight / 100,
+      scrollHeight: scrollHeight > 0 ? scrollHeight / 100 : 0,
     });
   };
 
@@ -56,7 +62,7 @@ class Category extends React.PureComponent {
     const scrollDistance = (pageY - touchStartScrollY) / 100;
     if (scrollDistance < 0 && scrollDistance >= -1.5) {
       this.setState({
-        scrollTop: 2.2,
+        scrollTop: 1.5,
       });
     } else if (scrollDistance > 0 && scrollDistance <= 1.5) {
       this.setState({
@@ -70,6 +76,9 @@ class Category extends React.PureComponent {
       touchStartScrollY, touchEndScrollY,
     } = this.state;
     parseInt(Math.abs(touchEndScrollY - touchStartScrollY) / 100, 10);
+    this.setState({
+      scrollTop: 0,
+    });
   };
 
   renderCategoryLayout = () => {

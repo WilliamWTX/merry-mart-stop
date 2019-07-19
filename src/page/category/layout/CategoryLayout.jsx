@@ -35,7 +35,7 @@ const CategoryLayout = (props) => {
   const bindScrollCategoryTypeRef = (ref) => {
     if (ref) {
       const { onSetCanScrollHeight } = props;
-      onSetCanScrollHeight(ref.scrollHeight - document.body.clientHeight);
+      onSetCanScrollHeight(ref.scrollHeight - document.body.clientHeight + 50);
     }
   };
 
